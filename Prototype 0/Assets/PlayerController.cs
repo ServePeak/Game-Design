@@ -15,8 +15,9 @@ public class PlayerController : MonoBehaviour {
 		bool inside_obj = false;
 		float moveHorizontal = Input.GetAxis ("Horizontal");
 		float moveVertical = Input.GetAxis ("Vertical");
-		Vector2 movement = new Vector2 (moveHorizontal, moveVertical);
-		rb2d.AddForce (movement);
+        this.transform.position = new Vector2(this.transform.position.x + moveHorizontal, this.transform.position.y + moveVertical);
+//		Vector2 movement = new Vector2 (moveHorizontal, moveVertical);
+//		rb2d.AddForce (movement);
 //		Vector2 mousePosition = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
 //		Debug.Log (mousePosition);
 //		rb2d.MovePosition(mousePosition);
