@@ -22,8 +22,8 @@ public class PlayerController : MonoBehaviour {
 //		rb2d.MovePosition(mousePosition);
 
 		foreach (GameObject obj in inside) {
-			if (this.transform.position.x < obj.transform.position.x + 0.7 & this.transform.position.x > obj.transform.position.x - 0.7 &
-				this.transform.position.y < obj.transform.position.y + 0.7 & this.transform.position.y > obj.transform.position.y - 0.7) {
+			if (this.transform.position.x < obj.transform.position.x + 0.75 & this.transform.position.x > obj.transform.position.x - 0.75 &
+				this.transform.position.y < obj.transform.position.y + 0.75 & this.transform.position.y > obj.transform.position.y - 0.75) {
 				inside_obj = true;
 				break;
 			}

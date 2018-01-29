@@ -2586,6 +2586,16 @@ MonoBehaviour:
   - {fileID: 1522605549}
   - {fileID: 364578909}
   - {fileID: 60254021}
+  - {fileID: 677642772}
+  - {fileID: 1638974128}
+  - {fileID: 1609342129}
+  - {fileID: 2137572089}
+  - {fileID: 2002241859}
+  - {fileID: 2098757467}
+  - {fileID: 1468982592}
+  - {fileID: 228631266}
+  - {fileID: 879215687}
+  - {fileID: 2052725958}
 --- !u!50 &1798337897
 Rigidbody2D:
   serializedVersion: 4
