@@ -1,0 +1,58 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Shark
+  - Net
+  - Hook
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - Fish
+  - Shark
+  - Net
+  - Hook
+  - Bounds
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Hook
+    uniqueID: 2315772231
+    locked: 0
+  - name: Net
+    uniqueID: 2762148329
+    locked: 0
+  - name: Shark
+    uniqueID: 4059016489
+    locked: 0
+  - name: Player
+    uniqueID: 3675996271
+    locked: 0
