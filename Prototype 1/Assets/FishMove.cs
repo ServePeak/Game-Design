@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class FishMove : MonoBehaviour {
 
@@ -21,9 +22,12 @@ public class FishMove : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
+        if (score == 100)
+            SceneManager.LoadScene("You Win", LoadSceneMode.Single);
+
 		float moveHorizontal = Input.GetAxis ("Horizontal");
 		float moveVertical = Input.GetAxis ("Vertical");
-		Vector2 movement = new Vector2 (moveHorizontal, moveVertical);
+		Vector2 movement = new Vector2 (moveHorizontal*2, moveVertical*2);
 		rb2d.AddForce (movement);
 
 		timer += Time.deltaTime;
@@ -42,6 +46,6 @@ public class FishMove : MonoBehaviour {
 
 	void OnCollisionEnter2D(Collision2D other)	{
 		if(other.gameObject.tag=="Shark" || other.gameObject.tag=="Net" || other.gameObject.tag=="Hook")
-			Application.LoadLevel (0);      
+			SceneManager.LoadScene("Game Over", LoadSceneMode.Single);      
 	}
 }
