@@ -19,7 +19,7 @@ public class EnemyShooter : MonoBehaviour {
 	void FixedUpdate () {
 
         timer += Time.deltaTime;
-        if (timer > 1.0f) {
+        if (timer > 2.0f) {
             timer = 0;
 
             GameObject leftRange = GameObject.FindGameObjectWithTag("LeftRange");
