@@ -227,7 +227,7 @@ GameObject:
   - component: {fileID: 626885515}
   - component: {fileID: 626885514}
   m_Layer: 11
-  m_Name: EnemyShooter (1)
+  m_Name: EnemyShooterLower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -434,7 +434,7 @@ GameObject:
   - component: {fileID: 805764389}
   - component: {fileID: 805764388}
   m_Layer: 11
-  m_Name: EnemyShooter
+  m_Name: EnemyShooterUpper
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
