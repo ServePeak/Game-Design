@@ -12,6 +12,7 @@ TagManager:
   - BallCircle
   - LeftRange
   - RightRange
+  - Protection
   layers:
   - Default
   - TransparentFX

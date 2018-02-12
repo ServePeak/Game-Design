@@ -21,7 +21,8 @@ public class BulletHit : MonoBehaviour {
 	}
 
     private void OnCollisionEnter2D(Collision2D collision) {
-        if (collision.gameObject.tag == "BallCircle" || collision.gameObject.tag == "BallSquare") {
+        if (collision.gameObject.tag == "BallCircle" || collision.gameObject.tag == "BallSquare" || 
+            collision.gameObject.tag == "Protection") {
             Destroy(this.gameObject);
         } else if (collision.gameObject.tag == "Player") {
             SceneManager.LoadScene("Game Over", LoadSceneMode.Single);
