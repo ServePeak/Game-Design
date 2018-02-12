@@ -28,6 +28,6 @@ public class LevelSelect : MonoBehaviour {
     }
 
     public void LevelFour() {
-        SceneManager.LoadScene("Scene 3", LoadSceneMode.Single);
+        SceneManager.LoadScene("Scene 4", LoadSceneMode.Single);
     }
 }
