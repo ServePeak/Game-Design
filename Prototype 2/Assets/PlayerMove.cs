@@ -34,7 +34,9 @@ public class PlayerMove : MonoBehaviour {
 			if (scene.name == "Screen 1") {
 				SceneManager.LoadScene ("Scene 2", LoadSceneMode.Single); 
 			} else if (scene.name == "Scene 2") {
-				SceneManager.LoadScene ("Screen 1", LoadSceneMode.Single); 
+				SceneManager.LoadScene ("Scene 3", LoadSceneMode.Single); 
+			} else if (scene.name == "Scene 3") {
+				SceneManager.LoadScene ("You Win", LoadSceneMode.Single); 
 			}
 		}
 	}
