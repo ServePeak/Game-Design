@@ -18,7 +18,7 @@ public class PlayerMove : MonoBehaviour {
 	void FixedUpdate () {
 		float moveHorizontal = Input.GetAxis ("Horizontal");
 		float moveVertical = Input.GetAxis ("Vertical");
-		Vector2 movement = new Vector2 (moveHorizontal*2, moveVertical*2);
+		Vector2 movement = new Vector2 (moveHorizontal*20, moveVertical*20);
 		rb2d.AddForce (movement);
 
 		numInside = 0;
