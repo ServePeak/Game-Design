@@ -18,7 +18,7 @@ public class PlayerMove : MonoBehaviour {
 	void FixedUpdate () {
 		float moveHorizontal = Input.GetAxis ("Horizontal");
 		float moveVertical = Input.GetAxis ("Vertical");
-		Vector2 movement = new Vector2 (moveHorizontal*2, moveVertical*2);
+		Vector2 movement = new Vector2 (moveHorizontal*20, moveVertical*20);
 		rb2d.AddForce (movement);
 
 		numInside = 0;
@@ -34,7 +34,11 @@ public class PlayerMove : MonoBehaviour {
 			if (scene.name == "Screen 1") {
 				SceneManager.LoadScene ("Scene 2", LoadSceneMode.Single); 
 			} else if (scene.name == "Scene 2") {
-				SceneManager.LoadScene ("Screen 1", LoadSceneMode.Single); 
+				SceneManager.LoadScene ("Scene 3", LoadSceneMode.Single); 
+			} else if (scene.name == "Scene 3") {
+				SceneManager.LoadScene ("Scene 4", LoadSceneMode.Single); 
+			} else if (scene.name == "Scene 4") {
+				SceneManager.LoadScene ("You Win", LoadSceneMode.Single); 
 			}
 		}
 	}

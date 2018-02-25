@@ -26,5 +26,11 @@ public class GameClearSquare : MonoBehaviour {
 		} else {
 			inside = false;
 		}
+
+        if (o_Collider.bounds.Contains(m_Collider.bounds.max) && o_Collider.bounds.Contains(m_Collider.bounds.min)) {
+            rb2d.drag = 3f;
+        } else {
+            rb2d.drag = 0.5f;
+        }
 	}
 }

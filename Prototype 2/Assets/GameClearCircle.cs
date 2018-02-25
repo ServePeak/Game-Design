@@ -28,5 +28,14 @@ public class GameClearCircle : MonoBehaviour {
 		} else {
 			inside = false;
 		}
+
+        if (o_Collider.bounds.center.x + o_Collider.bounds.extents.x > m_Collider.bounds.center.x + m_Collider.bounds.extents.x &&
+            o_Collider.bounds.center.y + o_Collider.bounds.extents.y > m_Collider.bounds.center.y + m_Collider.bounds.extents.y) {
+            rb2d.drag = 3f;
+        } else {
+            rb2d.drag = 0.5f;
+        }
+
+
 	}
 }

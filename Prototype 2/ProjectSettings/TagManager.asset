@@ -10,6 +10,9 @@ TagManager:
   - InnerSquare
   - OuterSquare
   - BallCircle
+  - LeftRange
+  - RightRange
+  - Protection
   layers:
   - Default
   - TransparentFX
@@ -21,9 +24,9 @@ TagManager:
   - 
   - Inner
   - Outer
-  - 
-  - 
-  - 
+  - Bullet
+  - Shooter
+  - Bounds
   - 
   - 
   - 
