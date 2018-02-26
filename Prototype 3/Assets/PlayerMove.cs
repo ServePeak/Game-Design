@@ -13,6 +13,8 @@ public class PlayerMove : MonoBehaviour {
     public bool moving = false;
     public bool destroyable = false;
     public bool finished_space = false;
+    public bool spawn_new = true;
+    private float time;
 
     // Use this for initialization
     void Start () {
@@ -22,7 +24,7 @@ public class PlayerMove : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (spawned) { 
+        if (spawned) {
             if (Input.GetKeyDown("space") && !finished_space) {
                 moveable = false;
                 clickable = true;
@@ -42,19 +44,28 @@ public class PlayerMove : MonoBehaviour {
                 finished_space = true;
             }
             if (moving) {
-                if (rb2d.velocity.magnitude < 0.01) {
+                if (rb2d.velocity.magnitude <= 0.0) {
                     destroyable = true;
                     moving = false;
-                    spawner.GetComponent<SpawnPlayers>().SpawnPlayer();
                 }
             }
             if (destroyable) {
-                Collider2D i_Collider = inside.GetComponent<Collider2D>();
-                Collider2D m_Collider = GetComponent<Collider2D>();
-                bool is_inside = i_Collider.bounds.Contains(m_Collider.bounds.max) && i_Collider.bounds.Contains(m_Collider.bounds.min);
+                time += Time.deltaTime;
 
-                if (!is_inside) {
-                    Destroy(gameObject);
+                if (time > 1.0f) {
+                    if (spawn_new) {
+                        spawner.GetComponent<SpawnPlayers>().SpawnPlayer();
+                        spawn_new = false;
+                    }
+
+                    Collider2D i_Collider = inside.GetComponent<Collider2D>();
+                    Collider2D m_Collider = GetComponent<Collider2D>();
+                    bool is_inside = i_Collider.bounds.Contains(m_Collider.bounds.max) && i_Collider.bounds.Contains(m_Collider.bounds.min);
+
+                    if (!is_inside)
+                    {
+                        Destroy(gameObject);
+                    }
                 }
             }
         }
