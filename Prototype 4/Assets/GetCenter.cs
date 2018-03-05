@@ -10,6 +10,7 @@ public class GetCenter : MonoBehaviour {
     public Text timerText;
     public Text scoreText;
     public int counter;
+    public GameObject player;
     private float time = 0;
     private int timer;
     private Collider2D m_Collider;
@@ -26,7 +27,13 @@ public class GetCenter : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-        time += Time.deltaTime;
+
+        if (Input.GetMouseButtonDown(0)) {
+            if (player.GetComponent<SpriteRenderer>().color == Color.red)
+                timer--;
+        }
+        if (player.GetComponent<SpriteRenderer>().color == Color.green)
+            time += Time.deltaTime;
         if (time > 1.0f) {
             time = 0;
             timer--;

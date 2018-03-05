@@ -822,6 +822,7 @@ MonoBehaviour:
   timerText: {fileID: 789422352}
   scoreText: {fileID: 28267110}
   counter: 0
+  player: {fileID: 1112683509}
 --- !u!61 &876932991
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -955,6 +956,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   basket: {fileID: 876932987}
+  m_SpriteRenderer: {fileID: 0}
 --- !u!60 &1112683513
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -1221,6 +1223,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawned: 0
+  timer: 0
   mousePos: {x: 0, y: 0, z: 0}
 --- !u!1 &1738253773
 GameObject:

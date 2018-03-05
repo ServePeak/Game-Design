@@ -17,7 +17,8 @@ public class PlayerBulletSpawner : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         if (Input.GetMouseButtonDown(0)) {
-            SpawnBullet();
+            if (player.GetComponent<SpriteRenderer>().color == Color.green)
+                SpawnBullet();
         }
     }
 

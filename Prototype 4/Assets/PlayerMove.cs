@@ -5,13 +5,16 @@ using UnityEngine;
 public class PlayerMove : MonoBehaviour {
 
     public GameObject basket;
+    public SpriteRenderer m_SpriteRenderer;
     private float timer;
+    private float timeColor;
     private float xp;
     private float yp;
 
     // Use this for initialization
     void Start () {
         ChangePosition();
+        m_SpriteRenderer = GetComponent<SpriteRenderer>();
     }
 	
 	// Update is called once per frame
@@ -19,6 +22,20 @@ public class PlayerMove : MonoBehaviour {
         int counter = basket.GetComponent<GetCenter>().counter;
 
         timer += Time.deltaTime;
+        timeColor += Time.deltaTime;
+        if (timeColor > 5.0f - Mathf.Log(counter+1, 10)) {
+            timeColor = 0;
+
+            if (m_SpriteRenderer.color != Color.black)
+                m_SpriteRenderer.color = Color.black;
+            else {
+                int color = Random.Range(0, 2);
+                if (color == 0)
+                    m_SpriteRenderer.color = Color.green;
+                else
+                    m_SpriteRenderer.color = Color.red;
+            }
+        }
         if (timer > 5.0f - Mathf.Log(counter, 10)) {
             timer = 0;
 
