@@ -26,4 +26,12 @@ public class BulletMove : MonoBehaviour {
 
         }
     }
+
+    /*void OnCollisionEnter2D(Collision2D col) {
+        if (col.gameObject.tag == "einit" && spawned) {
+            //health -= 1;
+            Destroy(col.gameObject);
+            Destroy(this.gameObject);
+        }
+    }*/
 }

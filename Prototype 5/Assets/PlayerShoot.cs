@@ -18,17 +18,34 @@ public class PlayerShoot : MonoBehaviour {
 	void Update () {
         time += Time.deltaTime;
 
-		if (Input.GetKey("space") && time > 0.25f) {
-            SpawnBullet();
+        if (time > 0.25f) {
+            Vector2 movement = Vector2.zero;
+            bool key = false;
+            if (Input.GetKey("left")) {
+                movement += Vector2.left;
+                key = true;
+            } else if (Input.GetKey("right")) {
+                movement += Vector2.right;
+                key = true;
+            }
+            if (Input.GetKey("up")) {
+                movement += Vector2.up;
+                key = true;
+            } else if (Input.GetKey("down")) {
+                movement += Vector2.down;
+                key = true;
+            }
+            if (key)
+                SpawnBullet(movement);
             time = 0;
         }
 	}
 
-    void SpawnBullet() {
-        spawned = Instantiate(bullet, new Vector3(transform.position.x, transform.position.y + 0.2f, 0f), Quaternion.identity);
+    void SpawnBullet(Vector2 movement) {
+        spawned = Instantiate(bullet, new Vector3(transform.position.x, transform.position.y, 0f), Quaternion.identity);
         spawned.GetComponent<BulletMove>().spawned = true;
         spawned.GetComponent<BulletMove>().speed = 3.0f;
-        spawned.GetComponent<BulletMove>().movement = new Vector2(0.0f,1.0f);
+        spawned.GetComponent<BulletMove>().movement = movement;
         bullets.Add(spawned);
         bullets.RemoveAll((o) => o == null);
     }

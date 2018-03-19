@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class eShoot1 : MonoBehaviour {
+public class eShoot3 : MonoBehaviour {
 
     public GameObject bullet;
     public List<GameObject> bullets = new List<GameObject>();
@@ -18,10 +18,13 @@ public class eShoot1 : MonoBehaviour {
 	void Update () {
         time += Time.deltaTime;
 
-		if (GetComponent<BossHealth>().stage_1 && time > 0.05f) {
-            SpawnBullet();
+        if (GetComponent<BossHealth>().stage_3 && time > 2.0f) {
+            for (int i = 0; i < 36; i++) {
+                SpawnBullet();
+                rotation += 10f;
+            }
             time = 0;
-            rotation += 10f;
+            rotation += 5f;
         }
 	}
 

@@ -8,6 +8,7 @@ TagManager:
   - bullet
   - boss
   - ebullet
+  - einit
   layers:
   - Default
   - TransparentFX
@@ -23,7 +24,7 @@ TagManager:
   - boss
   - ebullet
   - 
-  - 
+  - einit
   - 
   - 
   - 

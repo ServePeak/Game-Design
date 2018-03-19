@@ -7,7 +7,10 @@ public class BossHealth : MonoBehaviour {
     public int health = 100;
     public GameObject camerad;
     public bool stage_1;
-    private bool stage_1_init;
+    public bool stage_2;
+    public bool stage_3;
+    public bool stage_2_init;
+    private bool stage_3_init;
     SpriteRenderer m_SpriteRenderer;
 
     // Use this for initialization
@@ -17,11 +20,13 @@ public class BossHealth : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-		if (stage_1 && !stage_1_init) {
-            stage_1_init = true;
-        }
 
-        if(stage_1)
+
+        if (stage_3)
+            m_SpriteRenderer.color = Color.Lerp(m_SpriteRenderer.color, Color.red, Mathf.PingPong(Time.time, 5));
+        else if (stage_2)
+            m_SpriteRenderer.color = Color.Lerp(m_SpriteRenderer.color, Color.red, Mathf.PingPong(Time.time, 5));
+        else if (stage_1)
             m_SpriteRenderer.color = Color.Lerp(m_SpriteRenderer.color, Color.blue, Mathf.PingPong(Time.time, 5));
     }
 
@@ -33,8 +38,18 @@ public class BossHealth : MonoBehaviour {
         }
 
         if (health < 90 && !stage_1) {
-            camerad.GetComponent<CameraShake>().ShakeCamera(10f, 0.5f);
+            camerad.GetComponent<CameraShake>().ShakeCamera(5f, 0.25f);
             stage_1 = true;
+        }
+
+        if (health < 75 && !stage_2) {
+            camerad.GetComponent<CameraShake>().ShakeCamera(10f, 0.5f);
+            stage_2 = true;
+        }
+
+        if (health < 50 && !stage_3) {
+            camerad.GetComponent<CameraShake>().ShakeCamera(20f, 1.0f);
+            stage_3 = true;
         }
     }
 }

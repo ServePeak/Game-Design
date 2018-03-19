@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class eShoot1 : MonoBehaviour {
+public class eShoot2Init : MonoBehaviour {
 
     public GameObject bullet;
     public List<GameObject> bullets = new List<GameObject>();
@@ -16,12 +16,16 @@ public class eShoot1 : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        time += Time.deltaTime;
+		if (!GetComponent<BossHealth>().stage_2_init && GetComponent<BossHealth>().stage_2) {
+            time += Time.deltaTime;
 
-		if (GetComponent<BossHealth>().stage_1 && time > 0.05f) {
-            SpawnBullet();
-            time = 0;
-            rotation += 10f;
+            if (time > 1.0f) {
+                for (int i = 0; i < 36; i++) {
+                    SpawnBullet();
+                    rotation += 10f;
+                }
+                GetComponent<BossHealth>().stage_2_init = true;
+            }
         }
 	}
 
