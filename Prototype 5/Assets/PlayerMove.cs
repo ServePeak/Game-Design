@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class PlayerMove : MonoBehaviour {
 
+    public AudioClip impact;
+    AudioSource audioSource;
+    public GameObject camerad;
     private Renderer rend;
     private Rigidbody2D rb;
     private bool hit;
@@ -14,6 +17,7 @@ public class PlayerMove : MonoBehaviour {
     void Start () {
         rend = GetComponent<Renderer>();
         rb = GetComponent<Rigidbody2D>();
+        audioSource = GetComponent<AudioSource>();
     }
 	
 	// Update is called once per frame
@@ -23,10 +27,11 @@ public class PlayerMove : MonoBehaviour {
 
         Vector3 movement = new Vector2(moveHorizontal, moveVertical);
 
-        rb.velocity = movement * 3.0f;
+        rb.velocity = movement * 5.0f;
 
         if (blinked == 0) {
             hit = false;
+            rend.enabled = true;
         }
 
         if (hit) {
@@ -44,8 +49,12 @@ public class PlayerMove : MonoBehaviour {
         if (col.gameObject.tag == "ebullet") {
             //health -= 1;
             Destroy(col.gameObject);
-            hit = true;
-            blinked = 10;
+            if (!hit) {
+                hit = true;
+                blinked = 10;
+                audioSource.PlayOneShot(impact, 0.25F);
+                camerad.GetComponent<CameraShake>().ShakeCamera(0.5f, 0.1f);
+            }
         }
     }
 }

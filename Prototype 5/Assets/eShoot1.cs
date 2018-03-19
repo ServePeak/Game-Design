@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class eShoot1 : MonoBehaviour {
 
+    public AudioClip impact;
+    AudioSource audioSource;
     public GameObject bullet;
     public List<GameObject> bullets = new List<GameObject>();
     private GameObject spawned;
@@ -12,13 +14,14 @@ public class eShoot1 : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-	}
+        audioSource = GetComponent<AudioSource>();
+    }
 	
 	// Update is called once per frame
 	void Update () {
         time += Time.deltaTime;
 
-		if (GetComponent<BossHealth>().stage_1 && time > 0.05f) {
+		if (GetComponent<BossHealth>().stage_1 && !GetComponent<BossHealth>().stage_4 && time > 0.05f) {
             SpawnBullet();
             time = 0;
             rotation += 10f;
@@ -31,5 +34,6 @@ public class eShoot1 : MonoBehaviour {
         spawned.GetComponent<eBulletMove>().speed = 3.0f;
         bullets.Add(spawned);
         bullets.RemoveAll((o) => o == null);
+        audioSource.PlayOneShot(impact, 0.05F);
     }
 }

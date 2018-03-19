@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class eShoot2Init : MonoBehaviour {
 
+    public AudioClip impact;
+    AudioSource audioSource;
     public GameObject bullet;
     public List<GameObject> bullets = new List<GameObject>();
     private GameObject spawned;
@@ -12,11 +14,12 @@ public class eShoot2Init : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-	}
+        audioSource = GetComponent<AudioSource>();
+    }
 	
 	// Update is called once per frame
 	void Update () {
-		if (!GetComponent<BossHealth>().stage_2_init && GetComponent<BossHealth>().stage_2) {
+		if (!GetComponent<BossHealth>().stage_2_init && !GetComponent<BossHealth>().stage_4 && GetComponent<BossHealth>().stage_2) {
             time += Time.deltaTime;
 
             if (time > 1.0f) {
@@ -34,6 +37,7 @@ public class eShoot2Init : MonoBehaviour {
         spawned.GetComponent<eBulletMove>().spawned = true;
         spawned.GetComponent<eBulletMove>().speed = 3.0f;
         bullets.Add(spawned);
+        audioSource.PlayOneShot(impact, 0.05F);
         bullets.RemoveAll((o) => o == null);
     }
 }

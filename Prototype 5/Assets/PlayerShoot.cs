@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerShoot : MonoBehaviour {
 
+    public AudioClip impact;
+    AudioSource audioSource;
     public GameObject bullet;
     public List<GameObject> bullets = new List<GameObject>();
     private GameObject spawned;
@@ -11,8 +13,8 @@ public class PlayerShoot : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-		
-	}
+        audioSource = GetComponent<AudioSource>();
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -47,6 +49,7 @@ public class PlayerShoot : MonoBehaviour {
         spawned.GetComponent<BulletMove>().speed = 3.0f;
         spawned.GetComponent<BulletMove>().movement = movement;
         bullets.Add(spawned);
+        audioSource.PlayOneShot(impact, 0.05F);
         bullets.RemoveAll((o) => o == null);
     }
 }
